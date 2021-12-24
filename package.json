@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/ChristianKuri/decentralized-exchange-contracts#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.4.0"
+    "@openzeppelin/contracts": "^4.4.0",
+    "@truffle/hdwallet-provider": "^2.0.0",
+    "dotenv": "^10.0.0"
   }
 }
