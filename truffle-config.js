@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 /**
  * Use this file to configure your truffle project. It's seeded with some
@@ -33,6 +34,8 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
+  contracts_build_directory: path.join(__dirname, '../react-client/src/contracts'),
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -71,6 +74,11 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+    bscTestnet: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545/'),
+      network_id: 97,
+      skipDryRun: true,
+    },
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -104,13 +112,13 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
   //
   // db: {
-    // enabled: false,
-    // host: "127.0.0.1",
-    // adapter: {
-    //   name: "sqlite",
-    //   settings: {
-    //     directory: ".db"
-    //   }
-    // }
+  // enabled: false,
+  // host: "127.0.0.1",
+  // adapter: {
+  //   name: "sqlite",
+  //   settings: {
+  //     directory: ".db"
+  //   }
+  // }
   // }
 };
